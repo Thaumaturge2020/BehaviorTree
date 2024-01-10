@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/red-sakura/ykw/temporary_folder/install/behavior_tree_ex_control/include/**",
+        "/home/red-sakura/ykw/temporary_folder/install/behaviortree_cpp/include/**",
+        "/home/red-sakura/ws_livox/install/livox_ros_driver2/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/red-sakura/ykw/temporary_folder/src/BehaviorTree.CPP/include/**",
+        "/home/red-sakura/ykw/temporary_folder/src/nav2_behavior_tree/include/**",
+        "/home/red-sakura/ykw/temporary_folder/src/tree_tester/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,3 @@
+geometry_msgs/Point pos
+int32 commd_keyboard
+int32 target_robot_id
