@@ -1,0 +1,11 @@
+<root BTCPP_format="4">
+    <BehaviorTree ID="MainTree">
+        <Fallback name="root">
+            <BaseAttackSpecificEnemyNode    require_enemy_id="{require_enemy_id}"
+                                            target_enemy_id="{target_enemy_id}" />
+            <DefenceBuildingNode            building_id="{building_id}"/>
+            <NavigationBuildingNode         now_build_id="{now_build_id}"/>
+            <GimbalChooseEnemyNode          now_enemy_id="0"/>
+        </Fallback>
+    </BehaviorTree>
+</root>

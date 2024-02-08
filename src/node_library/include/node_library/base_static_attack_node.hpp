@@ -1,10 +1,10 @@
-#ifndef RM_SENTRY_2024_BASE_ATTACK_STATIC_
-#define RM_SENTRY_2024_BASE_ATTACK_STATIC_
+#ifndef RM_SENTRY_2024_BASE_STATIC_ATTACK_
+#define RM_SENTRY_2024_BASE_STATIC_ATTACK_
 
 #include <rclcpp/rclcpp.hpp>
 #include "behaviortree_cpp/bt_factory.h"
-#include "robot_msgs/msg/autoaim_info.hpp"
 #include "robot_msgs/msg/walk_cmd.hpp"
+#include "robot_msgs/msg/autoaim_info.hpp"
 
 namespace BehaviorTree{
     class BaseStaticAttackNode:public BT::SyncActionNode{
@@ -22,7 +22,6 @@ namespace BehaviorTree{
                 };
             }
             BT::NodeStatus tick() override;
-            
     };
 }
 

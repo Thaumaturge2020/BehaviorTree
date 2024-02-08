@@ -37,7 +37,10 @@ set(dependencies
   behavior_tree_ex_control
 )
 
-add_library(node_library SHARED src/base_static_attack_node.cpp)
+aux_source_directory(src/. plugin_cpp_list)
+
+add_library(node_library SHARED ${plugin_cpp_list})
+
 
 target_include_directories(node_library PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

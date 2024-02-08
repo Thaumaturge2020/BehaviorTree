@@ -29,7 +29,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   msg/RobotState.msg
   msg/WalkCmd.msg
   msg/CamCommand.msg
-  msg/OPCMD.msg
+  msg/OpCmd.msg
+  msg/BuildStateArray.msg
   DEPENDENCIES std_msgs geometry_msgs
 )
 # uncomment the following section in order to fill in

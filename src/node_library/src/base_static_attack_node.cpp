@@ -34,7 +34,8 @@ namespace BehaviorTree{
     }
 }
 
-BT_REGISTER_NODES(factory)
-{
-  factory.registerNodeType<BehaviorTree::BaseStaticAttackNode>("BaseStaticAttackNode");
-}
+// BT_REGISTER_NODES(factory)
+// {
+//     factory.registerNodeType<BehaviorTree::BaseStaticAttackNode>("BaseStaticAttackNode");
+// }
+
