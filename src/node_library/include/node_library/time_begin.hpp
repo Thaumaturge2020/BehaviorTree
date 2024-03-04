@@ -20,9 +20,7 @@ namespace BehaviorTree{
             static BT::PortsList providedPorts(){
                 return {
                     BT::OutputPort<double>("time_begin"),
-                    BT::OutputPort<double>("time_begin"),
-                    BT::InputPort<double>("time_during"),
-                    BT::OutputPort<double>("time_during")
+                    BT::BidirectionalPort<double>("time_during")
                 };
             }
             BT::NodeStatus tick() override;

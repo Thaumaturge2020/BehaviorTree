@@ -29,7 +29,7 @@ namespace BehaviorTree{
                 return {
                     BT::InputPort<int>("now_enemy_id"),
                     BT::OutputPort<int>("target_enemy_id")
-     };
+            };
     }
             BT::NodeStatus tick() override;
     };

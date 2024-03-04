@@ -2,22 +2,22 @@
 
 namespace BehaviorTree{
 
-    PATROL1Node::PATROL1Node(const std::string& name, const BT::NodeConfig& config):
+    Patrol1Node::Patrol1Node(const std::string& name, const BT::NodeConfig& config):
                 BT::SyncActionNode(name,config){
                     rclcpp::Time ti_now = rclcpp::Clock().now();
                     num=0;
                     clock=0;
                     //初始化patrol_1_position，weight_enemy
                     node_patrol1 = rclcpp::Node::make_shared("node_patrol1");                    
-                    patrol_radar_info = node_patrol1->create_subscription<robot_msgs::msg::AutoaimInfo>("radar_info",10,std::bind(&PATROL1Node::message_callback_patrol_radar_info,this,std::placeholders::_1));
+                    patrol_radar_info = node_patrol1->create_subscription<robot_msgs::msg::AutoaimInfo>("radar_info",10,std::bind(&Patrol1Node::message_callback_patrol_radar_info,this,std::placeholders::_1));
                 }
 
-    void PATROL1Node::message_callback_patrol_radar_info(const robot_msgs::msg::AutoaimInfo &msg){
+    void Patrol1Node::message_callback_patrol_radar_info(const robot_msgs::msg::AutoaimInfo &msg){
         robot_pos_array = msg.data;
         return;
     }
 
-    BT::NodeStatus PATROL1Node::tick(){
+    BT::NodeStatus Patrol1Node::tick(){
         rclcpp::spin_some(node_patrol1);
         if(getInput<double>("time_begin").value()>rclcpp::Clock().now().seconds())return BT::NodeStatus::FAILURE;
         if(getInput<int>("situation").value()!=situation){
@@ -71,5 +71,5 @@ namespace BehaviorTree{
 
 // BT_REGISTER_NODES(factory)
 // {
-//   factory.registerNodeType<BehaviorTree::PATROL1Node>("PATROL1Node");
+//   factory.registerNodeType<BehaviorTree::Patrol1Node>("Patrol1Node");
 // }

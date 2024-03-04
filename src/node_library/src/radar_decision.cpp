@@ -4,27 +4,27 @@
 namespace BehaviorTree{
 
 
-    RadarIndependent::RadarIndependent(const std::string& name, const BT::NodeConfig& config):
+    RadarDecision::RadarDecision(const std::string& name, const BT::NodeConfig& config):
                 BT::SyncActionNode(name,config){
                     //初始化 distance_limit_radar,distance_limit_enemy,weight_distance_radar,weight_distance_enemy,weight_last_choice
                     //
                     rclcpp::Time ti_now = rclcpp::Clock().now();
                     node_radar_independent = rclcpp::Node::make_shared("chassis_independent");                    
-                    radar_info = node_radar_independent->create_subscription<robot_msgs::msg::AutoaimInfo>("radar_info",10,std::bind(&RadarIndependent::message_callback_radar_independent,this,std::placeholders::_1));
-                    robot_position= node_radar_independent->create_subscription<geometry_msgs::msg::Point>("robot_position",10,std::bind(&RadarIndependent::message_callback_robot_position,this,std::placeholders::_1));
+                    radar_info = node_radar_independent->create_subscription<robot_msgs::msg::AutoaimInfo>("radar_info",10,std::bind(&RadarDecision::message_callback_radar_independent,this,std::placeholders::_1));
+                    robot_position= node_radar_independent->create_subscription<geometry_msgs::msg::Point>("robot_position",10,std::bind(&RadarDecision::message_callback_robot_position,this,std::placeholders::_1));
                 }
 
-    void RadarIndependent::message_callback_radar_independent(const robot_msgs::msg::AutoaimInfo &msg){
+    void RadarDecision::message_callback_radar_independent(const robot_msgs::msg::AutoaimInfo &msg){
         robot_pos_array = msg.data;
         return;
     }
 
-    void RadarIndependent::message_callback_robot_position(const geometry_msgs::msg::Point &msg){
+    void RadarDecision::message_callback_robot_position(const geometry_msgs::msg::Point &msg){
         position=msg;
         return;
     }
 
-     BT::NodeStatus BehaviorTree::RadarIndependent:: tick(){
+     BT::NodeStatus BehaviorTree::RadarDecision:: tick(){
         rclcpp::spin_some(node_radar_independent);
         if(getInput<double>("time_begin").value()>rclcpp::Clock().now().seconds())return BT::NodeStatus::FAILURE;
         double weight_enemy[9]={0};
@@ -68,5 +68,5 @@ namespace BehaviorTree{
 
 // BT_REGISTER_NODES(factory)
 // {
-//   factory.registerNodeType<BehaviorTree::RadarIndependent>("RadarIndependent");
+//   factory.registerNodeType<BehaviorTree::RadarDecision>("RadarDecision");
 // }

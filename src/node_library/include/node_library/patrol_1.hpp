@@ -8,12 +8,12 @@
 #include "robot_msgs/msg/robot_info.hpp"
 
 namespace BehaviorTree{
-    class PATROL1Node:public BT::SyncActionNode{
+    class Patrol1Node:public BT::SyncActionNode{
         private:
         public:
             rclcpp::Subscription<robot_msgs::msg::AutoaimInfo>::SharedPtr patrol_radar_info;
             rclcpp::Node::SharedPtr node_patrol1;
-            PATROL1Node(const std::string&name, const BT::NodeConfig& config);
+            Patrol1Node(const std::string&name, const BT::NodeConfig& config);
             int num,clock,situation,new_situation;
             int num_limit[5],clock_limit[5];
             double patrol_1_position[10][3][5],distance;
@@ -22,8 +22,7 @@ namespace BehaviorTree{
             void message_callback_patrol_radar_info(const robot_msgs::msg::AutoaimInfo &msg);
             static BT::PortsList providedPorts(){
                 return {
-                    BT::InputPort<int>("area_choose"),
-                    BT::OutputPort<int>("area_choose"),
+                    BT::BidirectionalPort<int>("area_choose"),
                     BT::InputPort<double>("time_begin"),
                     BT::InputPort<int>("situation"),
                     BT::OutputPort<geometry_msgs::msg::Point>("navigation_point ")  ////目标点的坐标

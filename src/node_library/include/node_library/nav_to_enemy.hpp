@@ -32,8 +32,7 @@ namespace BehaviorTree{
             void message_callback_my_pos(const nav_msgs::msg::Odometry &msg);
             static BT::PortsList providedPorts(){
                 return {
-                    BT::InputPort<int>("now_enemy_id"),
-                    
+                    BT::InputPort<int>("now_enemy_id")
                 };
             }
             BT::NodeStatus tick() override;

@@ -1,5 +1,5 @@
-#ifndef RM_SENTRY_2024_RADAR_INDEPENDENT_
-#define RM_SENTRY_2024_RADAR_INDEPENDENT_
+#ifndef RM_SENTRY_2024_RADAR_DECISION_
+#define RM_SENTRY_2024_RADAR_DECISION_
 
 #include <rclcpp/rclcpp.hpp>
 #include "behaviortree_cpp/bt_factory.h"
@@ -8,13 +8,13 @@
 #include "robot_msgs/msg/robot_info.hpp"
 
 namespace BehaviorTree{
-    class RadarIndependent:public BT::SyncActionNode{
+    class RadarDecision:public BT::SyncActionNode{
         private:
         public:
             rclcpp::Subscription<robot_msgs::msg::AutoaimInfo>::SharedPtr radar_info;
             rclcpp::Subscription<geometry_msgs::msg::Point>::SharedPtr robot_position;
             rclcpp::Node::SharedPtr node_radar_independent;
-            RadarIndependent(const std::string&name, const BT::NodeConfig& config);
+            RadarDecision(const std::string&name, const BT::NodeConfig& config);
             std::vector<robot_msgs::msg::RobotInfo> robot_pos_array;
             geometry_msgs::msg::Point position;
             double distance_limit_radar,distance_limit_enemy,theta_limit;
