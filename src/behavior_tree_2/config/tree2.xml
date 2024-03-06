@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4">
+  <BehaviorTree ID="Untitled">
+    <Sequence>
+      <Patrol3Node area_choose="0"
+                   time_begin="0.0"
+                   navigation_point=""/>
+      <Patrol2Node distance_limit="2.0"
+                   now_navigation_point=""
+                   navigation_point=""
+                   self_point=""/>
+    </Sequence>
+  </BehaviorTree>
+
+  <!-- Description of Node Models (used by Groot) -->
+  <TreeNodesModel>
+    <Action ID="Patrol2Node"
+            editable="true">
+      <input_port name="distance_limit"/>
+      <inout_port name="now_navigation_point"/>
+      <input_port name="navigation_point"/>
+      <input_port name="self_point"/>
+    </Action>
+    <Action ID="Patrol3Node"
+            editable="true">
+      <inout_port name="area_choose"/>
+      <input_port name="time_begin"/>
+      <output_port name="navigation_point"/>
+    </Action>
+  </TreeNodesModel>
+
+</root>

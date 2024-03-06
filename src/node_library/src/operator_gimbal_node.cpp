@@ -26,7 +26,7 @@ namespace BehaviorTree{
     }
 }
 
-BT_REGISTER_NODES(factory)
-{
-  factory.registerNodeType<BehaviorTree::OperatorGimbalNode>("OperatorGimbalNode");
-}
+// BT_REGISTER_NODES(factory)
+// {
+//   factory.registerNodeType<BehaviorTree::OperatorGimbalNode>("OperatorGimbalNode");
+// }

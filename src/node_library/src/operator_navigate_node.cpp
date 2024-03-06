@@ -28,7 +28,7 @@ namespace BehaviorTree{
     }
 }
 
-BT_REGISTER_NODES(factory)
-{
-  factory.registerNodeType<BehaviorTree::OperatorNavigateNode>("OperatorNavigateNode");
-}
+// BT_REGISTER_NODES(factory)
+// {
+//   factory.registerNodeType<BehaviorTree::OperatorNavigateNode>("OperatorNavigateNode");
+// }

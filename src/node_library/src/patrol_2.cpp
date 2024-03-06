@@ -7,6 +7,7 @@ namespace BehaviorTree{
     Patrol2Node::Patrol2Node(const std::string& name, const BT::NodeConfig& config):
                 BT::SyncActionNode(name,config){
                     //limit_distance[9]={}
+                    RCLCPP_INFO(rclcpp::get_logger("patrol_2_node"),"Patro2Node initialized");
                     state = 0;
                 }
 

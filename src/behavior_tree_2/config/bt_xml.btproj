@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root BTCPP_format="4" project_name="Project">
+    <!-- Description of Node Models (used by Groot) -->
+    <TreeNodesModel>
+        <Action ID="BaseAttackSpecificEnemyNode" editable="true">
+            <input_port name="require_enemy_id"/>
+            <output_port name="target_enemy_id"/>
+        </Action>
+        <Action ID="BaseStaticAttackNode" editable="true">
+            <input_port name="given_id"/>
+            <output_port name="target_id"/>
+        </Action>
+        <Action ID="DecideEnemy" editable="true">
+            <input_port name="now_enemy_id"/>
+            <output_port name="target_enemy_id"/>
+        </Action>
+        <Action ID="DefenceBuildingNode" editable="true">
+            <input_port name="building_id"/>
+        </Action>
+        <Action ID="GimbalChooseEnemyNode" editable="true">
+            <input_port name="now_enemy_id"/>
+        </Action>
+        <Action ID="NavToEnemy" editable="true">
+            <input_port name="now_enemy_id"/>
+        </Action>
+        <Action ID="NavToSpecificPlace" editable="true">
+            <input_port name="target_place"/>
+        </Action>
+        <Action ID="NavigationBuildingNode" editable="true">
+            <input_port name="now_build_id"/>
+        </Action>
+        <Action ID="OperatorGimbalNode" editable="true">
+            <output_port name="target_id"/>
+        </Action>
+        <Action ID="OperatorNavigateNode" editable="true">
+            <output_port name="navigation_point"/>
+        </Action>
+        <Action ID="Patrol1Node" editable="true">
+            <inout_port name="area_choose"/>
+            <input_port name="time_begin"/>
+            <input_port name="situation"/>
+            <output_port name="navigation_point"/>
+        </Action>
+        <Action ID="Patrol2Node" editable="true">
+            <input_port name="distance_limit"/>
+            <inout_port name="now_navigation_point"/>
+            <input_port name="navigation_point"/>
+            <input_port name="self_point"/>
+        </Action>
+        <Action ID="Patrol3Node" editable="true">
+            <inout_port name="area_choose"/>
+            <input_port name="time_begin"/>
+            <output_port name="navigation_point"/>
+        </Action>
+        <Action ID="RadarDecision" editable="true">
+            <input_port name="now_enemy_id"/>
+            <input_port name="time_begin"/>
+            <output_port name="target_enemy_id"/>
+        </Action>
+        <Action ID="Spin" editable="true"/>
+        <Action ID="TimeBegin" editable="true">
+            <output_port name="time_begin"/>
+            <inout_port name="time_during"/>
+        </Action>
+        <Action ID="TimeCompu" editable="true">
+            <output_port name="now_game_time"/>
+        </Action>
+        <Action ID="TimeCtrl" editable="true">
+            <input_port name="now_game_time"/>
+            <output_port name="game_status"/>
+        </Action>
+    </TreeNodesModel>
+</root>

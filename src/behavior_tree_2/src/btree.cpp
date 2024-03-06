@@ -37,9 +37,10 @@ int main(int argc, char * argv[]){
    factory.registerNodeType<BehaviorTree::NavigationBuildingNode>("NavigationBuildingNode");
    factory.registerNodeType<BehaviorTree::DecideEnemy>("DecideEnemy");
    factory.registerNodeType<BehaviorTree::NavToEnemy>("NavToEnemy");
-   factory.registerNodeType<BehaviorTree::PATROL1Node>("PATROL1Node");
-   factory.registerNodeType<BehaviorTree::PATROL2Node>("PATROL2Node");
-   factory.registerNodeType<BehaviorTree::RadarIndependent>("RadarIndependent");
+   factory.registerNodeType<BehaviorTree::Patrol1Node>("Patrol1Node");
+   factory.registerNodeType<BehaviorTree::Patrol2Node>("Patrol2Node");
+   factory.registerNodeType<BehaviorTree::Patrol3Node>("Patrol3Node");
+   factory.registerNodeType<BehaviorTree::RadarDecision>("RadarDecision");
    factory.registerNodeType<BehaviorTree::TimeBegin>("TimeBegin");
    factory.registerNodeType<BehaviorTree::TimeCtrl>("TimeCtrl");
    factory.registerNodeType<BehaviorTree::TimeCompu>("TimeCompu");
@@ -48,7 +49,7 @@ int main(int argc, char * argv[]){
 
    factory.registerNodeType<nav2_behavior_tree::PipelineSequence>("PipelineSequence");
    RCLCPP_INFO(rclcpp::get_logger("this is my logger"),"MYMYMY");
-   auto tree = factory.createTreeFromFile(ROOT "config/tree.xml");
+   auto tree = factory.createTreeFromFile(ROOT "config/tree2.xml");
    // auto nh=std::make_shared<Checkblood::SyncActionNode>();
     //rclcpp::spin(nh);
     while(rclcpp::ok()){     //rclcpp::ok()
