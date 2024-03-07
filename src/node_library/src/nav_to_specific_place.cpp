@@ -6,12 +6,12 @@ namespace BehaviorTree{
                 BT::SyncActionNode(name,config){
                     rclcpp::Time ti_now = rclcpp::Clock().now();
                     node1 = rclcpp::Node::make_shared("subscriber_enemy_pos");                    
-                    publisher_velocity_cmd = node1->create_publisher<geometry_msgs::msg::Point>("autoaim2decision",10);
+                    publisher_velocity_cmd = node1->create_publisher<geometry_msgs::msg::Point>("decision2ECbasespin",10);
                     flag = 0;
                 }
 
     BT::NodeStatus NavToSpecificPlace::tick(){
-        RCLCPP_INFO(rclcpp::get_logger("base_attack_node"),"I'm ticked");
+        // RCLCPP_INFO(rclcpp::get_logger("NavToSpecificPlace"),"I'm ticked");
         rclcpp::spin_some(node1);
         geometry_msgs::msg::Point target_place;
         if(getInput<geometry_msgs::msg::Point>("target_place",target_place))
