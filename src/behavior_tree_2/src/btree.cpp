@@ -44,7 +44,8 @@ int main(int argc, char * argv[]){
    factory.registerNodeType<BehaviorTree::RadarDecision>("RadarDecision");
    factory.registerNodeType<BehaviorTree::TimeBegin>("TimeBegin");
    factory.registerNodeType<BehaviorTree::TimeCtrl>("TimeCtrl");
-   factory.registerNodeType<BehaviorTree::TimeCompu>("TimeCompu");
+   factory.registerNodeType<BehaviorTree::TimeCompuLimit>("TimeCompuLimit");
+   factory.registerNodeType<BehaviorTree::TimeCompuInterval>("TimeCompuInterval");
    factory.registerNodeType<BehaviorTree::Spin>("SpinNode");
 
 

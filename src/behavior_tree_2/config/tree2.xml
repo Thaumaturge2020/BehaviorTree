@@ -10,6 +10,7 @@
                    navigation_point="{now_navigation_point}"
                    self_point="{self_point}"/>
       <NavToSpecificPlace target_place="{navigation_point}"/>
+      <TimeCompu now_game_time="1"/>
     </Sequence>
   </BehaviorTree>
 
@@ -31,6 +32,10 @@
       <inout_port name="area_choose"/>
       <input_port name="time_begin"/>
       <output_port name="navigation_point"/>
+    </Action>
+    <Action ID="TimeCompu"
+            editable="true">
+      <output_port name="now_game_time"/>
     </Action>
   </TreeNodesModel>
 

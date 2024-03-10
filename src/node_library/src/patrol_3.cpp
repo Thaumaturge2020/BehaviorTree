@@ -36,7 +36,7 @@ namespace BehaviorTree{
 
     BT::NodeStatus Patrol3Node::tick(){
         rclcpp::spin_some(node_patrol1);
-        RCLCPP_INFO(rclcpp::get_logger("patrol_3_node"),"%lf",(rclcpp::Clock().now() - ti_now).seconds());
+        // RCLCPP_INFO(rclcpp::get_logger("patrol_3_node"),"%lf",(rclcpp::Clock().now() - ti_now).seconds());
         if((rclcpp::Clock().now() - ti_now).seconds() < time_limit) return BT::NodeStatus::SUCCESS;
         ti_now = rclcpp::Clock().now();
         int area_choose,enemy_num=0,new_situation;

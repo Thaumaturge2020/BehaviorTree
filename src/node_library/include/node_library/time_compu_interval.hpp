@@ -9,20 +9,23 @@
 
 
 namespace BehaviorTree{
-    class TimeCompu:public BT::SyncActionNode{
+    class TimeCompuInterval:public BT::SyncActionNode{
         private:
             bool if_start_count = false;
+            int time;
         public:
-            TimeCompu(const std::string&name, const BT::NodeConfig& config);
+            TimeCompuInterval(const std::string&name, const BT::NodeConfig& config);
             rclcpp::TimerBase::SharedPtr timer1;
             rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr sub_game_time;
-            rclcpp::Node::SharedPtr node1;
-            rclcpp::Node::SharedPtr node2;
+            rclcpp::Node::SharedPtr node;
+            rclcpp::Time time_begin;
             void message_callback_game_time(const std_msgs::msg::Int32 &msg);
             void timer1_callback();
             static BT::PortsList providedPorts(){
                 return {
-                    BT::OutputPort<int>("now_game_time")
+                    BT::InputPort<double>("time_limit_min"),
+                    BT::InputPort<double>("time_limit_max"),
+                    BT::OutputPort<double>("now_game_time"),
                 };
             }
             BT::NodeStatus tick() override;
