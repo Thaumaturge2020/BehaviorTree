@@ -1,30 +1,30 @@
-#include "node_library/base_attack_specific_enemy_node.hpp"
+#include "node_library/chassis_attack_specific_enemy_node.hpp"
 
 namespace BehaviorTree
 {
-    BaseAttackSpecificEnemyNode::BaseAttackSpecificEnemyNode(const std::string &name, const BT::NodeConfig &config) :
+    ChassisAttackSpecificEnemyNode::ChassisAttackSpecificEnemyNode(const std::string &name, const BT::NodeConfig &config) :
             BT::SyncActionNode(name, config)
     {
         rclcpp::Time ti_now = rclcpp::Clock().now();
         node1 = rclcpp::Node::make_shared("subscriber_enemy_pos");
         node2 = rclcpp::Node::make_shared("subscriber_enemy_blood");
-        subscription_enemy_pos = node1->create_subscription<robot_msgs::msg::AutoaimInfo>("autoaim2decision", 10, std::bind(&BaseAttackSpecificEnemyNode::message_callback_enemy_pos, this, std::placeholders::_1));
-        subscription_enemy_blood = node2->create_subscription<robot_msgs::msg::RobotBloodInfo>("sentry/enemy_blood", 10, std::bind(&BaseAttackSpecificEnemyNode::message_callback_enemy_blood, this, std::placeholders::_1));
+        subscription_enemy_pos = node1->create_subscription<robot_msgs::msg::AutoaimInfo>("autoaim2decision", 10, std::bind(&ChassisAttackSpecificEnemyNode::message_callback_enemy_pos, this, std::placeholders::_1));
+        subscription_enemy_blood = node2->create_subscription<robot_msgs::msg::RobotBloodInfo>("sentry/enemy_blood", 10, std::bind(&ChassisAttackSpecificEnemyNode::message_callback_enemy_blood, this, std::placeholders::_1));
     }
 
-    void BaseAttackSpecificEnemyNode::message_callback_enemy_pos(const robot_msgs::msg::AutoaimInfo &msg)
+    void ChassisAttackSpecificEnemyNode::message_callback_enemy_pos(const robot_msgs::msg::AutoaimInfo &msg)
     {
         robot_pos_array = msg.data;
         return;
     }
 
-    void BaseAttackSpecificEnemyNode::message_callback_enemy_blood(const robot_msgs::msg::RobotBloodInfo &msg)
+    void ChassisAttackSpecificEnemyNode::message_callback_enemy_blood(const robot_msgs::msg::RobotBloodInfo &msg)
     {
         robot_blood_array = msg.data;
         return;
     }
 
-    BT::NodeStatus BaseAttackSpecificEnemyNode::tick()
+    BT::NodeStatus ChassisAttackSpecificEnemyNode::tick()
     {
         // RCLCPP_INFO(rclcpp::get_logger("base_attack_specific_enemy_node"), "I'm ticked");
         rclcpp::spin_some(node1);
@@ -54,5 +54,5 @@ namespace BehaviorTree
 
 // BT_REGISTER_NODES(factory)
 // {
-//     factory.registerNodeType<BehaviorTree::BaseAttackSpecificEnemyNode>("BaseAttackSpecificEnemyNode");
+//     factory.registerNodeType<BehaviorTree::ChassisAttackSpecificEnemyNode>("ChassisAttackSpecificEnemyNode");
 // }

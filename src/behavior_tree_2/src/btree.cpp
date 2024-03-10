@@ -30,8 +30,9 @@ int main(int argc, char * argv[]){
     rclcpp::init(argc, argv);    
 
     BT::BehaviorTreeFactory factory;
-   factory.registerNodeType<BehaviorTree::BaseStaticAttackNode>("BaseStaticAttackNode");
-   factory.registerNodeType<BehaviorTree::BaseAttackSpecificEnemyNode>("BaseAttackSpecificEnemyNode");
+   factory.registerNodeType<BehaviorTree::ChassisAttackSpecificEnemyNode>("ChassisAttackSpecificEnemyNode");
+   factory.registerNodeType<BehaviorTree::ChassisStaticAttackNode>("ChassisStaticAttackNode");
+   factory.registerNodeType<BehaviorTree::ChassisDecideSpeedNode>("ChassisDecideSpeedNode");
    factory.registerNodeType<BehaviorTree::DefenceBuildingNode>("DefenceBuildingNode");
    factory.registerNodeType<BehaviorTree::GimbalChooseEnemyNode>("GimbalChooseEnemyNode");
    factory.registerNodeType<BehaviorTree::NavigationBuildingNode>("NavigationBuildingNode");
