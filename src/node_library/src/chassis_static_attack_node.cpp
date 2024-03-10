@@ -1,20 +1,20 @@
-#include "node_library/base_static_attack_node.hpp"
+#include "node_library/chassis_static_attack_node.hpp"
 
 namespace BehaviorTree{
 
-    BaseStaticAttackNode::BaseStaticAttackNode(const std::string&name, const BT::NodeConfig& config):
+    ChassisStaticAttackNode::ChassisStaticAttackNode(const std::string&name, const BT::NodeConfig& config):
                 BT::SyncActionNode(name,config){
                     rclcpp::Time ti_now = rclcpp::Clock().now();
                     node1 = rclcpp::Node::make_shared("subscriber_enemy_pos");                    
-                    subscription_enemy_pos = node1->create_subscription<robot_msgs::msg::AutoaimInfo>("autoaim2decision",10,std::bind(&BaseStaticAttackNode::message_callback_enemy_pos,this,std::placeholders::_1));
+                    subscription_enemy_pos = node1->create_subscription<robot_msgs::msg::AutoaimInfo>("autoaim2decision",10,std::bind(&ChassisStaticAttackNode::message_callback_enemy_pos,this,std::placeholders::_1));
                 }
 
-    void BaseStaticAttackNode::message_callback_enemy_pos(const robot_msgs::msg::AutoaimInfo &msg){
+    void ChassisStaticAttackNode::message_callback_enemy_pos(const robot_msgs::msg::AutoaimInfo &msg){
         robot_pos_array = msg.data;
         return;
     }
 
-    BT::NodeStatus BaseStaticAttackNode::tick(){
+    BT::NodeStatus ChassisStaticAttackNode::tick(){
         RCLCPP_INFO(rclcpp::get_logger("base_attack_node"),"I'm ticked");
         rclcpp::spin_some(node1);
         size_t array_size = robot_pos_array.size();
@@ -36,6 +36,6 @@ namespace BehaviorTree{
 
 // BT_REGISTER_NODES(factory)
 // {
-//     factory.registerNodeType<BehaviorTree::BaseStaticAttackNode>("BaseStaticAttackNode");
+//     factory.registerNodeType<BehaviorTree::ChassisStaticAttackNode>("ChassisStaticAttackNode");
 // }
 

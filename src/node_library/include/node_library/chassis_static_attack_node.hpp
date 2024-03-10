@@ -7,12 +7,12 @@
 #include "robot_msgs/msg/autoaim_info.hpp"
 
 namespace BehaviorTree{
-    class BaseStaticAttackNode:public BT::SyncActionNode{
+    class ChassisStaticAttackNode:public BT::SyncActionNode{
         private:
         public:
             rclcpp::Subscription<robot_msgs::msg::AutoaimInfo>::SharedPtr subscription_enemy_pos;
             rclcpp::Node::SharedPtr node1;
-            BaseStaticAttackNode(const std::string&name, const BT::NodeConfig& config);
+            ChassisStaticAttackNode(const std::string&name, const BT::NodeConfig& config);
             std::vector<robot_msgs::msg::RobotInfo> robot_pos_array;
             void message_callback_enemy_pos(const robot_msgs::msg::AutoaimInfo &msg);
             static BT::PortsList providedPorts(){

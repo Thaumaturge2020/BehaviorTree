@@ -12,6 +12,7 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  msg/AutoaimInfoSpeed.msg
   msg/AutoaimInfoGazebo.msg
   msg/AutoaimInfo.msg
   msg/BuildState.msg
@@ -26,6 +27,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   msg/RobotBloodInfo.msg
   msg/RobotInfoGazebo.msg
   msg/RobotInfo.msg
+  msg/RobotInfoSpeed.msg
   msg/RobotState.msg
   msg/WalkCmd.msg
   msg/CamCommand.msg

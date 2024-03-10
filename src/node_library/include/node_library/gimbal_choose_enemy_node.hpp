@@ -32,7 +32,8 @@ namespace BehaviorTree{
             void message_callback_enemy_pos(const robot_msgs::msg::AutoaimInfo &msg);
             static BT::PortsList providedPorts(){
                 return {
-                    BT::InputPort<int>("now_enemy_id")
+                    BT::InputPort<int>("now_enemy_id"),
+                    BT::InputPort<int>("shooting_speed")
                 };
             }
             BT::NodeStatus tick() override;
