@@ -9,6 +9,7 @@
 #include "node_library/gimbal_choose_enemy_node.hpp"
 #include "node_library/nav_to_enemy.hpp"
 #include "node_library/navigation_building_node.hpp"
+#include "node_library/nav_to_specific_place.hpp"
 #include "node_library/patrol_1.hpp"
 #include "node_library/patrol_2.hpp"
 #include "node_library/patrol_3.hpp"

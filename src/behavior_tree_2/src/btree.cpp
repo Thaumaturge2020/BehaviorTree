@@ -37,6 +37,7 @@ int main(int argc, char * argv[]){
    factory.registerNodeType<BehaviorTree::GimbalChooseEnemyNode>("GimbalChooseEnemyNode");
    factory.registerNodeType<BehaviorTree::NavigationBuildingNode>("NavigationBuildingNode");
    factory.registerNodeType<BehaviorTree::DecideEnemy>("DecideEnemy");
+   factory.registerNodeType<BehaviorTree::NavToSpecificPlace>("NavToSpecificPlace");
    factory.registerNodeType<BehaviorTree::NavToEnemy>("NavToEnemy");
    factory.registerNodeType<BehaviorTree::Patrol1Node>("Patrol1Node");
    factory.registerNodeType<BehaviorTree::Patrol2Node>("Patrol2Node");
