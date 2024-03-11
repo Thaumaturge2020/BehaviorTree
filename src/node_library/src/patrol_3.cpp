@@ -51,6 +51,7 @@ namespace BehaviorTree{
             new_situation = situation + 1;
             new_situation = map_position_eigen[area_choose].size() ? 0 : new_situation;
         }
+        
 
         geometry_msgs::msg::Point navigation_point;
         area_choose=getInput<int>("area_choose").value();

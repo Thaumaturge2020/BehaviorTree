@@ -23,6 +23,8 @@ namespace BehaviorTree{
         self_navigation = Eigen::Vector3d(navigation_point.x,navigation_point.y,navigation_point.z);
         distance = (self_eigen - self_navigation).norm();
 
+        nav2_msgs::msg::Odometry A_Point;
+
         if(state == 0){
             if(distance>=distance_limit_max)
             state = 1;

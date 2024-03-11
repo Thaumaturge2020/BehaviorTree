@@ -34,8 +34,7 @@ namespace BehaviorTree{
                     && Eigen::Vector2d(robot_pos_array[i].vel.x,robot_pos_array[i].vel.y).norm() < highspeed_velocity)
                 setOutput<int>("shooting_speed",2);
                 
-                else if(Eigen::Vector3d(robot_pos_array[i].pos.x,robot_pos_array[i].pos.y,robot_pos_array[i].pos.z).norm() < highspeed_distance
-                    && Eigen::Vector2d(robot_pos_array[i].vel.x,robot_pos_array[i].vel.y).norm() < highspeed_velocity)
+                else if(Eigen::Vector3d(robot_pos_array[i].pos.x,robot_pos_array[i].pos.y,robot_pos_array[i].pos.z).norm() < highspeed_distance)
                 setOutput<int>("shooting_speed",1);
                 
                 else setOutput<int>("shooting_speed",0);

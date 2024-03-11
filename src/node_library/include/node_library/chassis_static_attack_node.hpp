@@ -5,6 +5,7 @@
 #include "behaviortree_cpp/bt_factory.h"
 #include "robot_msgs/msg/walk_cmd.hpp"
 #include "robot_msgs/msg/autoaim_info.hpp"
+#include "nav_msgs/msg/odometry.hpp"
 
 namespace BehaviorTree{
     class ChassisStaticAttackNode:public BT::SyncActionNode{

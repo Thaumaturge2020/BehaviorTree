@@ -6,6 +6,7 @@
 #include "geometry_msgs/msg/point.h"
 #include "robot_msgs/msg/autoaim_info.hpp"
 #include "robot_msgs/msg/robot_info.hpp"
+#include "nav_msgs/msg/odometry.hpp"
 
 namespace BehaviorTree{
     class Patrol2Node:public BT::SyncActionNode{
