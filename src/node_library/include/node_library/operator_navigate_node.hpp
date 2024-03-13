@@ -1,5 +1,5 @@
-#ifndef RM_SENTRY_2024_BASE_ATTACK_STATIC_
-#define RM_SENTRY_2024_BASE_ATTACK_STATIC_
+#ifndef RM_SENTRY_2024_OPERATOR_NAVIGATE_NODE_
+#define RM_SENTRY_2024_OPERATOR_NAVIGATE_NODE_
 
 #include <rclcpp/rclcpp.hpp>
 #include "behaviortree_cpp/bt_factory.h"

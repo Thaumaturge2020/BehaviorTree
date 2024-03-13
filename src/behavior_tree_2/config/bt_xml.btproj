@@ -63,8 +63,17 @@
             <output_port name="time_begin"/>
             <inout_port name="time_during"/>
         </Action>
-        <Action ID="TimeCompu" editable="true">
+        <Action ID="TimeCompuInterval" editable="true">
             <output_port name="now_game_time"/>
+            <input_port name="time_limit_min"/>
+            <input_port name="time_limit_max"/>
+        </Action>
+        <Action ID="TimeCompuLimit" editable="true">
+            <output_port name="now_game_time"/>
+            <input_port name="first_interval"/>
+            <input_port name="time_switch"/>
+            <input_port name="time_limit1"/>
+            <input_port name="time_limit2"/>
         </Action>
         <Action ID="TimeCtrl" editable="true">
             <input_port name="now_game_time"/>

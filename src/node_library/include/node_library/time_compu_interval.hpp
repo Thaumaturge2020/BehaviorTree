@@ -1,5 +1,5 @@
-#ifndef RM_SENTRY_2024_TIME_COMPU_
-#define RM_SENTRY_2024_TIME_COMPU_
+#ifndef RM_SENTRY_2024_TIME_COMPU_INTERVAL_
+#define RM_SENTRY_2024_TIME_COMPU_INTERVAL_
 
 
 #include <rclcpp/rclcpp.hpp>

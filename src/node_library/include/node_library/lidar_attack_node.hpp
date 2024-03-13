@@ -1,5 +1,5 @@
-#ifndef RM_SENTRY_2024_BASE_ATTACK_STATIC_
-#define RM_SENTRY_2024_BASE_ATTACK_STATIC_
+#ifndef RM_SENTRY_2024_LIDAR_ATTACK_NODE_
+#define RM_SENTRY_2024_LIDAR_ATTACK_NODE_
 
 #include <rclcpp/rclcpp.hpp>
 #include "behaviortree_cpp/bt_factory.h"
@@ -10,7 +10,7 @@ namespace BehaviorTree{
     class lidar_attack_node:public BT::SyncActionNode{
         private:
         public:
-            rclcpp::Subscription<robot_msgs::msg::AutoaimInfo>::SharedPtr subscriber_enemy_sequnece;
+            rclcpp::Subscription<robot_msgs::msg::AutoaimInfo>::SharedPtr subscription_enemy_sequnece;
             rclcpp::Node::SharedPtr node1;
             std::vector<robot_msgs::msg::RobotInfo> enemy_sequnece;
             lidar_attack_node(const std::string&name, const BT::NodeConfig& config);

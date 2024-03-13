@@ -29,7 +29,6 @@ namespace BehaviorTree{
     BT::NodeStatus lidar_attack_node::tick(){
         RCLCPP_INFO(rclcpp::get_logger("lidar_attack_node"),"I'm ticked");
         rclcpp::spin_some(node1);
-        size_t array_size = robot_pos_array.size();
         int given_id;
         if(!getInput<int>("requires_enemy_id",given_id)){
             RCLCPP_INFO(rclcpp::get_logger("lidar_attack_node"),"No Response");
@@ -45,7 +44,7 @@ namespace BehaviorTree{
     }
 }
 
-BT_REGISTER_NODES(factory)
-{
-  factory.registerNodeType<BehaviorTree::lidar_attack_node>("LidarAttackNode");
-}
+// BT_REGISTER_NODES(factory)
+// {
+//   factory.registerNodeType<BehaviorTree::lidar_attack_node>("LidarAttackNode");
+// }

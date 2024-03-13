@@ -2,23 +2,47 @@
 <root BTCPP_format="4">
   <BehaviorTree ID="Untitled">
     <Sequence>
-      <Patrol3Node area_choose="0"
-                   time_begin="0.0"
-                   navigation_point="{navigation_point}"/>
-      <Patrol2Node distance_limit="2.0"
-                   now_navigation_point="{now_navigation_point}"
-                   navigation_point="{now_navigation_point}"
-                   self_point="{self_point}"/>
-      <NavToSpecificPlace target_place="{navigation_point}"/>
-      <TimeCompu now_game_time="1"/>
+      <Sequence>
+        <DecideEnemy now_enemy_id="0"
+                     target_enemy_id="{choose_enemy_id}"/>
+        <GimbalChooseEnemyNode now_enemy_id="{choose_enemy_id}"/>
+      </Sequence>
+      <Sequence>
+        <Patrol3Node area_choose="5"
+                     time_begin="0"
+                     navigation_point="{now_navigation_point}"/>
+        <Patrol2Node distance_limit="1.0"
+                     now_navigation_point="{now_navigation_point}"
+                     navigation_point="{now_navigation_point}"
+                     self_point="{self_point}"/>
+      </Sequence>
+      <Sequence>
+        <TimeCompuLimit now_game_time=""
+                        first_interval="60"
+                        time_switch="1"
+                        time_limit1="15"
+                        time_limit2="90"/>
+        <Patrol3Node area_choose="0"
+                     time_begin="0"
+                     navigation_point="{now_navigation_point}"/>
+        <Patrol2Node distance_limit="2.0"
+                     now_navigation_point="{now_navigation_point}"
+                     navigation_point="{now_navigation_point}"
+                     self_point="{self_point}"/>
+      </Sequence>
     </Sequence>
   </BehaviorTree>
 
   <!-- Description of Node Models (used by Groot) -->
   <TreeNodesModel>
-    <Action ID="NavToSpecificPlace"
+    <Action ID="DecideEnemy"
             editable="true">
-      <input_port name="target_place"/>
+      <input_port name="now_enemy_id"/>
+      <output_port name="target_enemy_id"/>
+    </Action>
+    <Action ID="GimbalChooseEnemyNode"
+            editable="true">
+      <input_port name="now_enemy_id"/>
     </Action>
     <Action ID="Patrol2Node"
             editable="true">
@@ -33,9 +57,13 @@
       <input_port name="time_begin"/>
       <output_port name="navigation_point"/>
     </Action>
-    <Action ID="TimeCompu"
+    <Action ID="TimeCompuLimit"
             editable="true">
       <output_port name="now_game_time"/>
+      <input_port name="first_interval"/>
+      <input_port name="time_switch"/>
+      <input_port name="time_limit1"/>
+      <input_port name="time_limit2"/>
     </Action>
   </TreeNodesModel>
 

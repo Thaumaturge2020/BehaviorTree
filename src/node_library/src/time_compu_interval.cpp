@@ -1,13 +1,13 @@
-#include "node_library/time_compu.hpp"
+#include "node_library/time_compu_interval.hpp"
 
 namespace BehaviorTree{
 
-    TimeCompuInterval::TimeCompu(const std::string&name, const BT::NodeConfig& config):
+    TimeCompuInterval::TimeCompuInterval(const std::string&name, const BT::NodeConfig& config):
                 BT::SyncActionNode(name,config){
                     time = 0;
                     rclcpp::Time ti_now = rclcpp::Clock().now();
                     node = rclcpp::Node::make_shared("time_compu_node");
-                    sub_game_time = node->create_subscription<std_msgs::msg::Int32>("/game_time",10,std::bind(&TimeCompu::message_callback_game_time,this,std::placeholders::_1));
+                    sub_game_time = node->create_subscription<std_msgs::msg::Int32>("/game_time",10,std::bind(&TimeCompuInterval::message_callback_game_time,this,std::placeholders::_1));
                 }
 
     void TimeCompuInterval::message_callback_game_time(const std_msgs::msg::Int32 &msg){
