@@ -9,7 +9,7 @@ namespace BehaviorTree{
                     node2 = rclcpp::Node::make_shared("subscriber_enemy_blood"); 
                     node3 = rclcpp::Node::make_shared("Odometry");                  
                     subscription_enemy_pos = node1->create_subscription<robot_msgs::msg::AutoaimInfo>("autoaim2decision",10,std::bind(&DecideEnemy::message_callback_enemy_pos,this,std::placeholders::_1));
-                    subscription_enemy_blood = node2->create_subscription<robot_msgs::msg::RobotBloodInfo>("enemy_info",10,std::bind(&DecideEnemy::message_callback_enemy_blood,this,std::placeholders::_1));
+                    subscription_enemy_blood = node2->create_subscription<robot_msgs::msg::RobotBloodInfo>("enemy_blood_info",10,std::bind(&DecideEnemy::message_callback_enemy_blood,this,std::placeholders::_1));
                     my_pos = node3->create_subscription<nav_msgs::msg::Odometry>("Odometry",10,std::bind(&DecideEnemy::message_callback_my_pos,this,std::placeholders::_1));
                 }
                 
@@ -52,6 +52,9 @@ namespace BehaviorTree{
             return BT::NodeStatus::FAILURE;
         }
         int Id,Blood;
+
+        if(robot_blood_array.empty()) return BT::NodeStatus::FAILURE;
+
         Blood = robot_blood_array[0].blood;
         Id = robot_blood_array[0].id;
         //距离单位

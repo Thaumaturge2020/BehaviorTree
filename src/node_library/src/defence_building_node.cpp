@@ -33,11 +33,11 @@ namespace BehaviorTree
         {
             if (build_state_array[i].id == building_id)
             {
-                if(build_state_array[i].blood <= 0)
-                {
+                if(build_state_array[i].blood <= 0){
                     RCLCPP_INFO(rclcpp::get_logger("defence_building_node"), "building is dead");
                     return BT::NodeStatus::FAILURE;
                 }
+                
                 RCLCPP_INFO(rclcpp::get_logger("defence_building_node"), "building Found");
                 return BT::NodeStatus::SUCCESS;
             }

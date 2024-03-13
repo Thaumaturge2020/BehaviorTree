@@ -47,7 +47,7 @@ namespace BehaviorTree
 
     BT::NodeStatus GimbalChooseEnemyNode::tick()
     {
-        // RCLCPP_INFO(rclcpp::get_logger("GimbalChooseEnemyNode"), "I'm ticked");
+        RCLCPP_INFO(rclcpp::get_logger("GimbalChooseEnemyNode"), "I'm ticked");
         rclcpp::spin_some(gimbal_choose_enemy_node);
         //
         publisher_enemy_info->publish(std_msgs::msg::Float64());

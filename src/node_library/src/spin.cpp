@@ -50,9 +50,11 @@ namespace BehaviorTree{
             spin_able.data = 0;
         }
         else{
-            if(array_size<=2){
-                spin_able.data= 5;
+            if(My_pos.x <= 7){
+                spin_able.data = 5;
             }
+            else
+                spin_able.data = 0;
         }
         pub_spin_able->publish(spin_able);
         return BT::NodeStatus::SUCCESS;
